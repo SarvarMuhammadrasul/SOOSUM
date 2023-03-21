@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<main class="content">
+    <div class="container-fluid p-0">
+
+        <h1 class="h3 mb-3">Form Layouts</h1>
+
+        <div class="row">
+            <div class="col-12 col-xl-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">Add Product</h5>
+                        
+                    </div>
+                    <div class="card-body">
+                        <form action="" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label class="form-label">Text Uz</label>
+                                <textarea class="form-control" name="text_uz" placeholder="Textarea" rows="4"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Text Ru</label>
+                                <textarea class="form-control" name="text_ru" placeholder="Textarea" rows="4"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Price</label><br>
+                                <input name="price" type="  ">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label w-100">Product Image</label>
+                                <input type="file" name="img">
+                              
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</main>
+
+
+{% endblock content %}

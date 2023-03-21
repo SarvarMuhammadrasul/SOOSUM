@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<main class="content">
+    <div class="container-fluid p-0">
+
+        <h1 class="h3 mb-3">Tables</h1>
+
+        <div class="row">
+
+            <div class="col-12 col-xl-10">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">Contextual Classes</h5>
+                        <h6 class="card-subtitle text-muted">Use contextual classes to color table rows or individual cells.</h6>
+                    </div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th style="width:20%;">Title Uz</th>
+                                <th style="width:20%;">Title Ru</th>
+                                <th style="width:20%;">Text Uz</th>
+                                <th style="width:20%">Text Ru</th>
+                                <th class="d-none d-md-table-cell" style="width:20%">Photo</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for i in how %}
+                            <tr>
+                                <td>{{ i.title_uz }}</td>
+                                <td>{{ i.title_ru }}</td>
+                                <td>{{ i.text_uz }}</td>
+                                <td>{{ i.text_ru }}</td>
+                                <td class="d-none d-md-table-cell"><img width="50px"  src="{{ i.img.url }}" alt=""></td>
+                                <td class="table-action">
+                                    <a href="{% url 'edit-how-to-use' i.id %}"><i class="align-middle" data-feather="edit-2"></i></a>
+                                    <a href="{% url 'delete-how-to-use' i.id %}"><i class="align-middle" data-feather="trash"></i></a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+</main>
+{% endblock content %}

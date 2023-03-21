@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<main class="content">
+    <div class="container-fluid p-0">
+
+        <h1 class="h3 mb-3">Tables</h1>
+
+        <div class="row">
+
+            <div class="col-12 col-xl-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">Contextual Classes</h5>
+                        <h6 class="card-subtitle text-muted">Use contextual classes to color table rows or individual cells.</h6>
+                    </div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th style="width:40%;">Name</th>
+                                <th style="width:25%">Phone Number</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for i in order %}
+                            <tr>
+                                <td>{{ i.name }}</td>
+                                <td>{{ i.phone }}</td>
+                                <td class="table-action">
+                                    <a href="{% url 'edit-order' i.id %}"><i class="align-middle" data-feather="edit-2"></i></a>
+                                    <a href="{% url 'delete-order' i.id %}"><i class="align-middle" data-feather="trash"></i></a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+</main>
+{% endblock content %}
